@@ -6,11 +6,12 @@ import { FormsModule, NgForm } from "@angular/forms";
 import { MatFormField } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
+import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-student-create-and-edit',
   standalone: true,
-  imports: [MatFormField, MatInputModule, MatButtonModule, FormsModule],
+  imports: [MatFormField, MatInputModule, MatButtonModule, FormsModule, TranslateModule],
   templateUrl: './student-create-and-edit.component.html',
   styleUrl: './student-create-and-edit.component.css'
 })
