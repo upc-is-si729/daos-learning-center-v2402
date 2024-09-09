@@ -1,0 +1,48 @@
+<!-- Student catalogue -->
+<div class="table-wrapper">
+  <h3>{{ 'title.students' | translate }}</h3>
+
+  <!--Add/Edit Form-->
+  <app-student-create-and-edit (editCanceled)="onCancelEdit()"
+                               (studentAdded)="onStudentAdded($event)"
+                               (studentUpdated)="onStudentUpdated($event)"
+                               [editMode] = "isEditMode"
+                               [student]="studentData"/>
+  <!-- Data Table -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"
+         matSort matSortActive="name" matSortDirection="asc">
+
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> {{ 'student.id' | translate }} </th>
+      <td *matCellDef="let element" mat-cell>{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>{{ 'student.name' | translate }}</th>
+      <td *matCellDef="let element" mat-cell>{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>{{ 'student.age' | translate }}</th>
+      <td *matCellDef="let element" mat-cell>{{ element.age }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>{{ 'student.address' | translate }}</th>
+      <td *matCellDef="let element" mat-cell>{{ element.address }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef mat-header-cell> {{ 'student.actions' | translate }}</th>
+      <td *matCellDef="let element" mat-cell>
+        <a (click)="onEditItem(element)" href="javascript:void(0)"><mat-icon>edit</mat-icon></a>
+        <a (click)="onDeleteItem(element)" href="javascript:void(0)"><mat-icon>delete</mat-icon></a>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns:displayedColumns" [ngClass]="{'editable-row': studentData.id === row.id }" mat-row></tr>
+  </table>
+  <!-- Paginator child component-->
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
