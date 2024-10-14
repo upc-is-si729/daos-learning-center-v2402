@@ -1,10 +1,10 @@
 export class Student {
-  id: number;
+  id: string;
   name: string;
   age: number;
   address: string;
   constructor() {
-    this.id = 0;
+    this.id = "";
     this.name = "";
     this.age = 0;
     this.address = "";

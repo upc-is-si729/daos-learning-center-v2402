@@ -76,7 +76,7 @@ export class StudentManagementComponent implements OnInit, AfterViewInit  {
       });
   };
 
-  private deleteStudent(studentId: number): void {
+  private deleteStudent(studentId: string): void {
     this.studentService.delete(studentId)
       .subscribe(() => {
         this.dataSource.data = this.dataSource.data
