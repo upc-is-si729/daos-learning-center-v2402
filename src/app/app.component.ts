@@ -12,12 +12,14 @@ import { MatListModule } from "@angular/material/list";
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { TranslateService } from "@ngx-translate/core";
 import { LanguageSwitcherComponent } from "./public/pages/language-switcher/language-switcher.component";
+import { AuthenticationSectionComponent } from "./iam/components/authentication-section/authentication-section.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink, MatToolbarModule, MatButtonModule, MatIconModule,
-    MatSidenavModule, MatDividerModule, MatListModule, LanguageSwitcherComponent],
+    MatSidenavModule, MatDividerModule, MatListModule, LanguageSwitcherComponent,
+    AuthenticationSectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
